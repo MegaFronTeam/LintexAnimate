@@ -30,7 +30,7 @@ const sizes = {
  */
 const parameters = {}
 const sizeEl = 4500
-parameters.count = 200 * document.body.offsetHeight / sizes.height
+parameters.count = 40 * document.body.offsetHeight / sizes.height
 parameters.size = 10.5
 parameters.radius = 5
 parameters.branches = 3
@@ -82,7 +82,7 @@ const generateGalaxy = () =>
 
 
         const randomX =  (Math.random() < 0.5 ? 1 : - 1)  * parameters.radius
-        const randomY = Math.pow(Math.random(), parameters.randomnessPower) * (Math.random() < 0.5 ? 1 : - 1) * parameters.randomness * radius * 500
+        const randomY = Math.pow(Math.random(), parameters.randomnessPower) * (Math.random() < 0.5 ? 1 : - 1) * parameters.randomness * radius * 1200
         const randomZ = Math.pow(Math.random(), parameters.randomnessPower) * (Math.random() < 0.5 ? 1 : - 1) * parameters.randomness * radius
 
         positions[i3    ] =   0
