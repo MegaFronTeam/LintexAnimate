@@ -30,7 +30,7 @@ const sizes = {
  */
 const parameters = {}
 const sizeEl = 4500
-parameters.count = 40 * document.body.offsetHeight / sizes.height
+parameters.count = 200 * document.body.offsetHeight / sizes.height
 parameters.size = 10.5
 parameters.radius = 5
 parameters.branches = 3
@@ -82,7 +82,7 @@ const generateGalaxy = () =>
 
 
         const randomX =  (Math.random() < 0.5 ? 1 : - 1)  * parameters.radius
-        const randomY = Math.pow(Math.random(), parameters.randomnessPower) * (Math.random() < 0.5 ? 1 : - 1) * parameters.randomness * radius * 1200
+        const randomY = Math.pow(Math.random(), parameters.randomnessPower) * (Math.random() < 0.5 ? 1 : - 1) * parameters.randomness * radius * 500
         const randomZ = Math.pow(Math.random(), parameters.randomnessPower) * (Math.random() < 0.5 ? 1 : - 1) * parameters.randomness * radius
 
         positions[i3    ] =   0
@@ -155,7 +155,7 @@ window.addEventListener('resize', () =>
 
     // Update renderer
     renderer.setSize(sizes.width, sizes.height)
-    renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2))
+    renderer.setPixelRatio(.5)
 })
 
 /**
@@ -179,7 +179,7 @@ const renderer = new THREE.WebGLRenderer({
     canvas: canvas
 })
 renderer.setSize(sizes.width, sizes.height)
-renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2))
+renderer.setPixelRatio(.5)
 
 const axHelpesHelper = new THREE.AxesHelper(3);
 scene.add(axHelpesHelper);
