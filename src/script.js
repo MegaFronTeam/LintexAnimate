@@ -29,7 +29,7 @@ const sizes = {
  * Galaxy
  */
 const parameters = {}
-const sizeEl = 3500
+const sizeEl = 1200
 parameters.count = 300 * document.body.offsetHeight / sizes.height
 // parameters.size = 100.0
 parameters.radius = 8
@@ -168,8 +168,8 @@ camera.position.z = 3
 scene.add(camera)
 
 // Controls
-// const controls = new OrbitControls(camera, canvas)
-// controls.enableDamping = true
+const controls = new OrbitControls(camera, canvas)
+controls.enableDamping = true
 
 /**
  * Renderer
