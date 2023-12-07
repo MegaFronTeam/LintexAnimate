@@ -4035,8 +4035,8 @@ void main()\r
     float distanceToCenter = length(modelPosition.xz);\r
     float angleOffset = (1.0 / 2.0) * uTime;\r
     angle += angleOffset;\r
-    modelPosition.y += sin(angle)/ 2.0;\r
-    modelPosition.x += cos(angle)/ 2.0;\r
+    
+    
     modelPosition.y = uYpos;
 
     
@@ -4082,4 +4082,4 @@ void main()\r
     gl_FragColor = vec4(color, 1.0);\r
 	#include <colorspace_fragment>\r
 }`;const Ei=new rp,op=document.querySelector("canvas.webgl"),mi=new zf;let ds=window.scrollY;const Pt={width:window.innerWidth,height:window.innerHeight},We={},lp=4500;We.count=40*document.body.offsetHeight/Pt.height;We.size=10.5;We.radius=5;We.branches=3;We.spin=1;We.randomness=2;We.randomnessPower=1.5;We.insideColor="#ff6030";We.outsideColor="#1b3984";const Ya=[new Ne("#636CE2"),new Ne("#00D700"),new Ne("#86EFEA"),new Ne("#303E57")];let Mn=null,ui=null,Zi=null;const ni=()=>{Zi!==null&&(Mn.dispose(),ui.dispose(),mi.remove(Zi)),Mn=new Ht;const i=new Float32Array(We.count*3),e=new Float32Array(We.count*3),t=new Float32Array(We.count*3),n=new Float32Array(We.count*1);new Ne(We.insideColor),new Ne(We.outsideColor);for(let r=0;r<We.count;r++){const s=r*3,o=Math.random()*We.radius,a=(Math.random()<.5?1:-1)*We.radius,l=Math.pow(Math.random(),We.randomnessPower)*(Math.random()<.5?1:-1)*We.randomness*Pt.height;Math.pow(Math.random(),We.randomnessPower)*(Math.random()<.5?1:-1)*We.randomness*o,i[s]=0,i[s+1]=0,i[s+2]=0,e[s]=a,e[s+1]=l,e[s+2]=-2;const c=Math.floor(Math.random()*Ya.length),u=Ya[c];t[s]=u.r,t[s+1]=u.g,t[s+2]=u.b,n[r]=Math.random()}Mn.setAttribute("position",new xt(i,3)),Mn.setAttribute("aRandomness",new xt(e,3)),Mn.setAttribute("color",new xt(t,3)),Mn.setAttribute("aScale",new xt(n,1)),ui=new fn({depthWrite:!1,blending:qr,vertexColors:!0,uniforms:{uTime:{value:0},uYpos:{value:ds},uSize:{value:lp*Jn.getPixelRatio()}},vertexShader:sp,fragmentShader:ap}),Zi=new kf(Mn,ui),mi.add(Zi)};Ei.add(We,"count").min(100).max(1e6).step(100).onFinishChange(ni);Ei.add(We,"radius").min(.01).max(20).step(.01).onFinishChange(ni);Ei.add(We,"branches").min(2).max(20).step(1).onFinishChange(ni);Ei.add(We,"randomness").min(0).max(2).step(.001).onFinishChange(ni);Ei.add(We,"randomnessPower").min(1).max(10).step(.001).onFinishChange(ni);window.addEventListener("resize",()=>{Pt.width=window.innerWidth,Pt.height=window.innerHeight,gi.aspect=Pt.width/Pt.height,gi.updateProjectionMatrix(),Jn.setSize(Pt.width,Pt.height),Jn.setPixelRatio(Math.min(window.devicePixelRatio,2))});const gi=new Lt(75,Pt.width/Pt.height,.1,100);gi.position.z=3;mi.add(gi);const Jn=new yo({canvas:op});Jn.setSize(Pt.width,Pt.height);Jn.setPixelRatio(Math.min(window.devicePixelRatio,2));const cp=new Xf(3);mi.add(cp);ni();const hp=new Wf,To=()=>{const i=hp.getElapsedTime();ui.uniforms.uTime.value=i,ui.uniforms.uYpos.value=ds*.005,Jn.render(mi,gi),window.requestAnimationFrame(To)};To();window.addEventListener("scroll",()=>{ds=window.scrollY});
-//# sourceMappingURL=index-c6cfd103.js.map
+//# sourceMappingURL=index-c665e6ea.js.map

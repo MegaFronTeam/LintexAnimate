@@ -19,8 +19,8 @@ void main()
     float distanceToCenter = length(modelPosition.xz);
     float angleOffset = (1.0 / 2.0) * uTime;
     angle += angleOffset;
-    modelPosition.y += sin(angle)/ 2.0;
-    modelPosition.x += cos(angle)/ 2.0;
+    // modelPosition.y *= sin(angle)/ 1.0;
+    // modelPosition.x *= sin(angle)/ 1.0;
     modelPosition.y = uYpos;
 
     // Randomness
