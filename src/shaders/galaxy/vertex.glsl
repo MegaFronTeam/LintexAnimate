@@ -21,8 +21,8 @@ void main()
     float angleOffset = (1.0 / 1.0) * uTime;
     angle += angleOffset;
     // modelPosition.x = uYpos;
-    modelPosition.x *= sin(angle) / 2.0 ;
-    modelPosition.y *= sin(angle) / 2.0 ;
+    // modelPosition.x *= sin(angle) / 2.0 ;
+    // modelPosition.y *= sin(angle) / 2.0 ;
     modelPosition.y = uYpos;
 
     // Randomness
