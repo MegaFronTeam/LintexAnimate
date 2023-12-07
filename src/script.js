@@ -29,16 +29,14 @@ const sizes = {
  * Galaxy
  */
 const parameters = {}
-const sizeEl = 4500
-parameters.count = 200 * document.body.offsetHeight / sizes.height
-parameters.size = 10.5
-parameters.radius = 5
-parameters.branches = 3
-parameters.spin = 1
+const sizeEl = 3500
+parameters.count = 300 * document.body.offsetHeight / sizes.height
+// parameters.size = 100.0
+parameters.radius = 8
+// parameters.branches = 3
+parameters.spin = 2
 parameters.randomness = 2
-parameters.randomnessPower = 1.5
-parameters.insideColor = '#ff6030'
-parameters.outsideColor = '#1b3984'
+parameters.randomnessPower = 1.5 
 
 const colorsArr = [
     new THREE.Color('#636CE2'),
@@ -81,8 +79,8 @@ const generateGalaxy = () =>
         const radius = Math.random() * parameters.radius
 
 
-        const randomX =  (Math.random() < 0.5 ? 1 : - 1)  * parameters.radius
-        const randomY = Math.pow(Math.random(), parameters.randomnessPower) * (Math.random() < 0.5 ? 1 : - 1) * parameters.randomness * radius * 500
+        const randomX =  (Math.random() < 0.5 ? 1 : - 1)  * parameters.radius + Math.pow(Math.random(), parameters.randomnessPower) * 0.1
+        const randomY = Math.pow(Math.random(), parameters.randomnessPower) * (Math.random() < 0.5 ? 1 : - 1) * parameters.randomness * sizes.height * 6
         const randomZ = Math.pow(Math.random(), parameters.randomnessPower) * (Math.random() < 0.5 ? 1 : - 1) * parameters.randomness * radius
 
         positions[i3    ] =   0
@@ -121,7 +119,9 @@ const generateGalaxy = () =>
         uniforms:
         {
             uTime: { value: 0 },
+            pointTexture: { value: new THREE.TextureLoader().load('pack/star_05.png') },
             uYpos: { value: topY },
+            uRandom: { value: Math.random() * 2 - 1 },
             uSize: { value: sizeEl * renderer.getPixelRatio() }
         },    
         vertexShader: galaxyVertexShader,
@@ -137,7 +137,6 @@ const generateGalaxy = () =>
 
 gui.add(parameters, 'count').min(100).max(1000000).step(100).onFinishChange(generateGalaxy)
 gui.add(parameters, 'radius').min(0.01).max(20).step(0.01).onFinishChange(generateGalaxy)
-gui.add(parameters, 'branches').min(2).max(20).step(1).onFinishChange(generateGalaxy)
 gui.add(parameters, 'randomness').min(0).max(2).step(0.001).onFinishChange(generateGalaxy)
 gui.add(parameters, 'randomnessPower').min(1).max(10).step(0.001).onFinishChange(generateGalaxy)
 
@@ -150,8 +149,8 @@ window.addEventListener('resize', () =>
     sizes.height = window.innerHeight
 
     // Update camera
-    camera.aspect = sizes.width / sizes.height
-    camera.updateProjectionMatrix()
+    // camera.aspect = sizes.width / sizes.height
+    // camera.updateProjectionMatrix()
 
     // Update renderer
     renderer.setSize(sizes.width, sizes.height)

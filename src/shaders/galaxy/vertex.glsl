@@ -1,6 +1,7 @@
 uniform float uTime;
 uniform float uSize;
 uniform float uYpos;
+uniform float uRandom;
 
 attribute vec3 aRandomness;
 attribute float aScale;
@@ -19,8 +20,10 @@ void main()
     float distanceToCenter = length(modelPosition.xz);
     float angleOffset = (1.0 / 1.0) * uTime;
     angle += angleOffset;
+    // modelPosition.x = uYpos;
     modelPosition.y = uYpos;
-    // modelPosition.z = sin(angle) * distanceToCenter;
+    modelPosition.y += sin(angle) / 2.0 * aScale;
+    modelPosition.x -= cos(angle) / 2.0 * aScale;
 
     // Randomness
     modelPosition.xyz += aRandomness;
@@ -32,10 +35,12 @@ void main()
     /**
      * Size
      */
-     float scaleOffset = 0.5;
-     scaleOffset *=  1.0 + (sin(angleOffset) + 1.0) *  0.5;
-    gl_PointSize = uSize * aScale * scaleOffset;
-    gl_PointSize *= (1.0 / - viewPosition.z);
+    //  float scaleOffset = 0.5;
+     float scaleOffset = 1.0;
+     scaleOffset *=  1.5 + (sin(angleOffset) + 0.4) *  0.5;
+    //  scaleOffset *= aRandomness;
+    gl_PointSize = uSize  * aScale ;
+    gl_PointSize *= (1.0 / - viewPosition.z * 2.8)* scaleOffset;
 
     /**
      * Color
