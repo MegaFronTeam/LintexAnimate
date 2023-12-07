@@ -4038,8 +4038,8 @@ void main()\r
     angle += angleOffset;\r
     
     modelPosition.y = uYpos;\r
-    modelPosition.y += sin(angle) / 2.0 * aScale;\r
-    modelPosition.x -= cos(angle) / 2.0 * aScale;
+    modelPosition.x += sin(angle) / 2.0 ;\r
+    modelPosition.y += sin(angle) / 2.0 ;
 
     
     modelPosition.xyz += aRandomness;
@@ -4053,7 +4053,7 @@ void main()\r
      */\r
     
      float scaleOffset = 1.0;\r
-     scaleOffset *=  1.5 + (sin(angleOffset) + 0.4) *  0.5;\r
+     scaleOffset *=  1.5 + (sin(angleOffset) + 0.4) ;\r
     
     gl_PointSize = uSize  * aScale ;\r
     gl_PointSize *= (1.0 / - viewPosition.z * 2.8)* scaleOffset;
@@ -4092,4 +4092,4 @@ void main()\r
     gl_FragColor = vec4(color, 1.0);\r
 	#include <colorspace_fragment>\r
 }`;const or=new hp,fp=document.querySelector("canvas.webgl"),pi=new Gf;let ds=window.scrollY;const Vt={width:window.innerWidth,height:window.innerHeight},Ye={},pp=1200;Ye.count=300*document.body.offsetHeight/Vt.height;Ye.radius=8;Ye.spin=2;Ye.randomness=2;Ye.randomnessPower=1.25;const Ka=[new Ne("#636CE2"),new Ne("#00D700"),new Ne("#86EFEA"),new Ne("#303E57")];let Mn=null,ci=null,ji=null;const Si=()=>{ji!==null&&(Mn.dispose(),ci.dispose(),pi.remove(ji)),Mn=new zt;const i=new Float32Array(Ye.count*3),e=new Float32Array(Ye.count*3),t=new Float32Array(Ye.count*3),n=new Float32Array(Ye.count*1);new Ne(Ye.insideColor),new Ne(Ye.outsideColor);for(let r=0;r<Ye.count;r++){const s=r*3,o=Math.random()*Ye.radius,a=(Math.random()<.5?1:-1)*Ye.radius+Math.pow(Math.random(),Ye.randomnessPower)*.1,l=Math.pow(Math.random(),Ye.randomnessPower)*(Math.random()<.5?1:-1)*Ye.randomness*Vt.height*6;Math.pow(Math.random(),Ye.randomnessPower)*(Math.random()<.5?1:-1)*Ye.randomness*o,i[s]=0,i[s+1]=0,i[s+2]=0,e[s]=a,e[s+1]=l,e[s+2]=-2;const c=Math.floor(Math.random()*Ka.length),h=Ka[c];t[s]=h.r,t[s+1]=h.g,t[s+2]=h.b,n[r]=Math.random()}Mn.setAttribute("position",new xt(i,3)),Mn.setAttribute("aRandomness",new xt(e,3)),Mn.setAttribute("color",new xt(t,3)),Mn.setAttribute("aScale",new xt(n,1)),ci=new fn({depthWrite:!1,blending:Xr,vertexColors:!0,uniforms:{uTime:{value:0},pointTexture:{value:new Kf().load("pack/star_05.png")},uYpos:{value:ds},uRandom:{value:Math.random()*2-1},uSize:{value:pp*Math.min(window.devicePixelRatio,2)}},vertexShader:up,fragmentShader:dp}),ji=new Xf(Mn,ci),pi.add(ji)};or.add(Ye,"count").min(100).max(1e6).step(100).onFinishChange(Si);or.add(Ye,"radius").min(.01).max(20).step(.01).onFinishChange(Si);or.add(Ye,"randomness").min(0).max(2).step(.001).onFinishChange(Si);or.add(Ye,"randomnessPower").min(1).max(10).step(.001).onFinishChange(Si);window.addEventListener("resize",()=>{Vt.width=window.innerWidth,Vt.height=window.innerHeight,mi.setSize(Vt.width,Vt.height),mi.setPixelRatio(.5)});const fs=new Lt(75,Vt.width/Vt.height,.1,100);fs.position.z=3/Math.min(window.devicePixelRatio,2);pi.add(fs);const mi=new To({canvas:fp});mi.setSize(Vt.width,Vt.height);mi.setPixelRatio(.5);const mp=new Zf(3);pi.add(mp);Si();const gp=new jf,wo=()=>{const i=gp.getElapsedTime();ci.uniforms.uTime.value=i,ci.uniforms.uYpos.value=ds*.005,mi.render(pi,fs),window.requestAnimationFrame(wo)};wo();window.addEventListener("scroll",()=>{ds=window.scrollY});
-//# sourceMappingURL=index-e0a7093b.js.map
+//# sourceMappingURL=index-520dffb3.js.map
