@@ -122,7 +122,7 @@ const generateGalaxy = () =>
             pointTexture: { value: new THREE.TextureLoader().load('pack/star_05.png') },
             uYpos: { value: topY },
             uRandom: { value: Math.random() * 2 - 1 },
-            uSize: { value: sizeEl * renderer.getPixelRatio() }
+            uSize: { value: sizeEl * window.devicePixelRatio / 2}
         },    
         vertexShader: galaxyVertexShader,
         fragmentShader: galaxyFragmentShader
@@ -164,7 +164,7 @@ window.addEventListener('resize', () =>
 const camera = new THREE.PerspectiveCamera(75, sizes.width / sizes.height, 0.1, 100)
 // camera.position.x = 3
 // camera.position.y = 3
-camera.position.z = 3
+camera.position.z = 3 * window.devicePixelRatio;
 scene.add(camera)
 
 // Controls
