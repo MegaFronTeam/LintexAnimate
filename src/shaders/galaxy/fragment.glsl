@@ -24,7 +24,12 @@ void main()
     strength = pow(strength, 10.0);
 
     // Final color
+    // vec3 color = mix(vec3(0.0), vColor, strength);
+    // gl_FragColor = vec4(color, 1.0);
+	// #include <colorspace_fragment>
+
     vec3 color = mix(vec3(0.0), vColor, strength);
-    gl_FragColor = vec4(color, 1.0);
+    gl_FragColor = vec4( color, 1.0 );
+	gl_FragColor = gl_FragColor * texture2D( pointTexture, gl_PointCoord );
 	#include <colorspace_fragment>
 }

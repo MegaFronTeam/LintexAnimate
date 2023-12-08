@@ -29,19 +29,19 @@ const sizes = {
  * Galaxy
  */
 const parameters = {}
-const sizeEl = 1200
+const sizeEl = 1200  
 parameters.count = 300 * document.body.offsetHeight / sizes.height
 // parameters.size = 100.0
-parameters.radius = 4
+parameters.radius = 8.5  / window.devicePixelRatio
 // parameters.branches = 3
 parameters.spin = 2
 parameters.randomness = 2
 parameters.randomnessPower = 1.25 
 
 const colorsArr = [
-    new THREE.Color('#636CE2'),
-    new THREE.Color('#00D700'),
     new THREE.Color('#86EFEA'),
+    new THREE.Color('#00D700'),
+    new THREE.Color('#636CE2'),
     new THREE.Color('#303E57')
 ]
 
@@ -80,7 +80,7 @@ const generateGalaxy = () =>
 
 
         const randomX =  (Math.random() < 0.5 ? 1 : - 1)  * parameters.radius + Math.pow(Math.random(), parameters.randomnessPower) * 0.1
-        const randomY = Math.pow(Math.random(), parameters.randomnessPower) * (Math.random() < 0.5 ? 1 : - 1) * parameters.randomness * sizes.height * 6
+        const randomY = Math.pow(Math.random(), parameters.randomnessPower) * (Math.random() < 0.5 ? 1 : - 1) * parameters.randomness * sizes.height * 4
         const randomZ = Math.pow(Math.random(), parameters.randomnessPower) * (Math.random() < 0.5 ? 1 : - 1) * parameters.randomness * radius
 
         positions[i3    ] =   0
@@ -101,7 +101,7 @@ const generateGalaxy = () =>
         colors[i3 + 2] = mixedColor.b
 
         // Scale
-        scales[i] = Math.random()
+        scales[i] = Math.min(Math.random() + 0.5, 1.0)
     }
 
     geometry.setAttribute('position', new THREE.BufferAttribute(positions, 3))
@@ -120,9 +120,9 @@ const generateGalaxy = () =>
         {
             uTime: { value: 0 },
             pointTexture: { value: new THREE.TextureLoader().load('pack/star_05.png') },
-            uYpos: { value: topY },
-            uRandom: { value: Math.random() * 2 - 1 },
-            uSize: { value: sizeEl * Math.min(window.devicePixelRatio, 2)}
+            uYpos: { value: topY }, 
+            uSize: { value: sizeEl * window.devicePixelRatio},
+            pointTexture: { value: new THREE.TextureLoader().load('pack/star_05.png') }
         },    
         vertexShader: galaxyVertexShader,
         fragmentShader: galaxyFragmentShader
