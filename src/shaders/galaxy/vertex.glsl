@@ -21,7 +21,7 @@ void main()
     angle += angleOffset;
     // modelPosition.x = uYpos;
     // modelPosition.x *= sin(angle) / 2.0 ;
-    // modelPosition.x = sin(angle) / 4.0 ;
+    modelPosition.x = sin(angle) / 4.0 * aScale ;
     modelPosition.y = uYpos * aScale / 1.5;
 
     // Randomness
@@ -36,7 +36,7 @@ void main()
      */
     //  float scaleOffset = 0.5;
      float scaleOffset = 1.0;
-     scaleOffset *=  1.4 + (sin(angle) + .4) ;
+     scaleOffset *=  1.4 + (sin(angle) + 1.4) ;
     //  scaleOffset *= aRandomness;
     gl_PointSize = uSize  * aScale / 1.0 * scaleOffset;
     gl_PointSize *= (1.0 / - viewPosition.z * 2.0);

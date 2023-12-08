@@ -29,8 +29,8 @@ const sizes = {
  * Galaxy
  */
 const parameters = {}
-const sizeEl = 1200  
-parameters.count = 300 * document.body.offsetHeight / sizes.height
+const sizeEl = 400  
+parameters.count = 250 * document.body.offsetHeight / sizes.height
 // parameters.size = 100.0
 parameters.radius = 8.5  / window.devicePixelRatio
 // parameters.branches = 3

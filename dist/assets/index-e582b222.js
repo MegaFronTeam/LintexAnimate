@@ -4037,7 +4037,7 @@ void main()\r
     angle += angleOffset;\r
     
     
-    
+    modelPosition.x = sin(angle) / 4.0 * aScale ;\r
     modelPosition.y = uYpos * aScale / 1.5;
 
     
@@ -4052,7 +4052,7 @@ void main()\r
      */\r
     
      float scaleOffset = 1.0;\r
-     scaleOffset *=  1.4 + (sin(angle) + .4) ;\r
+     scaleOffset *=  1.4 + (sin(angle) + 1.4) ;\r
     
     gl_PointSize = uSize  * aScale / 1.0 * scaleOffset;\r
     gl_PointSize *= (1.0 / - viewPosition.z * 2.0);
@@ -4087,13 +4087,13 @@ void main()\r
     strength = pow(strength, 10.0);
 
     
+    vec3 color = mix(vec3(0.0), vColor, strength);\r
+    gl_FragColor = vec4(color, 1.0);\r
+	#include <colorspace_fragment>
+
     
     
 	
-
-    vec3 color = mix(vec3(0.0), vColor, strength);\r
-    gl_FragColor = vec4( color, 1.0 );\r
-	gl_FragColor = gl_FragColor * texture2D( pointTexture, gl_PointCoord );\r
-	#include <colorspace_fragment>\r
-}`;const or=new hp,fp=document.querySelector("canvas.webgl"),pi=new Vf;let ds=window.scrollY;const Vt={width:window.innerWidth,height:window.innerHeight},Ye={},pp=1200;Ye.count=300*document.body.offsetHeight/Vt.height;Ye.radius=8.5/window.devicePixelRatio;Ye.spin=2;Ye.randomness=2;Ye.randomnessPower=1.25;const ja=[new Ne("#86EFEA"),new Ne("#00D700"),new Ne("#636CE2"),new Ne("#303E57")];let Mn=null,ci=null,ji=null;const Si=()=>{ji!==null&&(Mn.dispose(),ci.dispose(),pi.remove(ji)),Mn=new zt;const i=new Float32Array(Ye.count*3),e=new Float32Array(Ye.count*3),t=new Float32Array(Ye.count*3),n=new Float32Array(Ye.count*1);new Ne(Ye.insideColor),new Ne(Ye.outsideColor);for(let r=0;r<Ye.count;r++){const s=r*3,o=Math.random()*Ye.radius,a=(Math.random()<.5?1:-1)*Ye.radius+Math.pow(Math.random(),Ye.randomnessPower)*.1,l=Math.pow(Math.random(),Ye.randomnessPower)*(Math.random()<.5?1:-1)*Ye.randomness*Vt.height*4;Math.pow(Math.random(),Ye.randomnessPower)*(Math.random()<.5?1:-1)*Ye.randomness*o,i[s]=0,i[s+1]=0,i[s+2]=0,e[s]=a,e[s+1]=l,e[s+2]=-2;const c=Math.floor(Math.random()*ja.length),h=ja[c];t[s]=h.r,t[s+1]=h.g,t[s+2]=h.b,n[r]=Math.min(Math.random()+.5,1)}Mn.setAttribute("position",new xt(i,3)),Mn.setAttribute("aRandomness",new xt(e,3)),Mn.setAttribute("color",new xt(t,3)),Mn.setAttribute("aScale",new xt(n,1)),ci=new fn({depthWrite:!1,blending:Xr,vertexColors:!0,uniforms:{uTime:{value:0},pointTexture:{value:new Ya().load("pack/star_05.png")},uYpos:{value:ds},uSize:{value:pp*window.devicePixelRatio},pointTexture:{value:new Ya().load("pack/star_05.png")}},vertexShader:up,fragmentShader:dp}),ji=new qf(Mn,ci),pi.add(ji)};or.add(Ye,"count").min(100).max(1e6).step(100).onFinishChange(Si);or.add(Ye,"radius").min(.01).max(20).step(.01).onFinishChange(Si);or.add(Ye,"randomness").min(0).max(2).step(.001).onFinishChange(Si);or.add(Ye,"randomnessPower").min(1).max(10).step(.001).onFinishChange(Si);window.addEventListener("resize",()=>{Vt.width=window.innerWidth,Vt.height=window.innerHeight,mi.setSize(Vt.width,Vt.height),mi.setPixelRatio(.5)});const fs=new Lt(75,Vt.width/Vt.height,.1,100);fs.position.z=3/Math.min(window.devicePixelRatio,2);pi.add(fs);const mi=new bo({canvas:fp});mi.setSize(Vt.width,Vt.height);mi.setPixelRatio(.5);const mp=new Zf(3);pi.add(mp);Si();const gp=new jf,Ro=()=>{const i=gp.getElapsedTime();ci.uniforms.uTime.value=i,ci.uniforms.uYpos.value=ds*.005,mi.render(pi,fs),window.requestAnimationFrame(Ro)};Ro();window.addEventListener("scroll",()=>{ds=window.scrollY});
-//# sourceMappingURL=index-5691adfe.js.map
+	
+}`;const or=new hp,fp=document.querySelector("canvas.webgl"),pi=new Vf;let ds=window.scrollY;const Vt={width:window.innerWidth,height:window.innerHeight},Ye={},pp=400;Ye.count=250*document.body.offsetHeight/Vt.height;Ye.radius=8.5/window.devicePixelRatio;Ye.spin=2;Ye.randomness=2;Ye.randomnessPower=1.25;const ja=[new Ne("#86EFEA"),new Ne("#00D700"),new Ne("#636CE2"),new Ne("#303E57")];let Mn=null,ci=null,ji=null;const Si=()=>{ji!==null&&(Mn.dispose(),ci.dispose(),pi.remove(ji)),Mn=new zt;const i=new Float32Array(Ye.count*3),e=new Float32Array(Ye.count*3),t=new Float32Array(Ye.count*3),n=new Float32Array(Ye.count*1);new Ne(Ye.insideColor),new Ne(Ye.outsideColor);for(let r=0;r<Ye.count;r++){const s=r*3,o=Math.random()*Ye.radius,a=(Math.random()<.5?1:-1)*Ye.radius+Math.pow(Math.random(),Ye.randomnessPower)*.1,l=Math.pow(Math.random(),Ye.randomnessPower)*(Math.random()<.5?1:-1)*Ye.randomness*Vt.height*4;Math.pow(Math.random(),Ye.randomnessPower)*(Math.random()<.5?1:-1)*Ye.randomness*o,i[s]=0,i[s+1]=0,i[s+2]=0,e[s]=a,e[s+1]=l,e[s+2]=-2;const c=Math.floor(Math.random()*ja.length),h=ja[c];t[s]=h.r,t[s+1]=h.g,t[s+2]=h.b,n[r]=Math.min(Math.random()+.5,1)}Mn.setAttribute("position",new xt(i,3)),Mn.setAttribute("aRandomness",new xt(e,3)),Mn.setAttribute("color",new xt(t,3)),Mn.setAttribute("aScale",new xt(n,1)),ci=new fn({depthWrite:!1,blending:Xr,vertexColors:!0,uniforms:{uTime:{value:0},pointTexture:{value:new Ya().load("pack/star_05.png")},uYpos:{value:ds},uSize:{value:pp*window.devicePixelRatio},pointTexture:{value:new Ya().load("pack/star_05.png")}},vertexShader:up,fragmentShader:dp}),ji=new qf(Mn,ci),pi.add(ji)};or.add(Ye,"count").min(100).max(1e6).step(100).onFinishChange(Si);or.add(Ye,"radius").min(.01).max(20).step(.01).onFinishChange(Si);or.add(Ye,"randomness").min(0).max(2).step(.001).onFinishChange(Si);or.add(Ye,"randomnessPower").min(1).max(10).step(.001).onFinishChange(Si);window.addEventListener("resize",()=>{Vt.width=window.innerWidth,Vt.height=window.innerHeight,mi.setSize(Vt.width,Vt.height),mi.setPixelRatio(.5)});const fs=new Lt(75,Vt.width/Vt.height,.1,100);fs.position.z=3/Math.min(window.devicePixelRatio,2);pi.add(fs);const mi=new bo({canvas:fp});mi.setSize(Vt.width,Vt.height);mi.setPixelRatio(.5);const mp=new Zf(3);pi.add(mp);Si();const gp=new jf,Ro=()=>{const i=gp.getElapsedTime();ci.uniforms.uTime.value=i,ci.uniforms.uYpos.value=ds*.005,mi.render(pi,fs),window.requestAnimationFrame(Ro)};Ro();window.addEventListener("scroll",()=>{ds=window.scrollY});
+//# sourceMappingURL=index-e582b222.js.map
