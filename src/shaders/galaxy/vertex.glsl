@@ -21,7 +21,8 @@ void main()
     angle += angleOffset;
     // modelPosition.x = uYpos;
     // modelPosition.x *= sin(angle) / 2.0 ;
-    // modelPosition.x = sin(angle) / 4.0 * aScale ;
+    modelPosition.y += abs(sin(angle) / 2.0 * aScale) ;
+    modelPosition.x += abs(sin(angle) / 2.0 * aScale) ;
     modelPosition.y = uYpos * aScale / 1.5;
 
     // Randomness
